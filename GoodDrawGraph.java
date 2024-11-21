@@ -11,11 +11,11 @@ public abstract class GoodDrawGraph {
    }
 
    public double xRange() {
-      return 0.0D;
+      return 0;
    }
 
    public double yRange() {
-      return 0.0D;
+      return 0;
    }
 
    public Coordinate getPoint(int pointNum) {
@@ -31,12 +31,9 @@ public abstract class GoodDrawGraph {
 
       for (Coordinate point = this.getPoint(i); point != null; point = this.getPoint(i)) {
          ++i;
-         if (point != null) {
-            double xPixel = (double) xPixelStart + (point.getX() - start.getX()) * ((double) pixelsWide / xRange);
-            double yPixel = (double) yPixelStart
-                  + (start.getY() + yRange - point.getY()) * ((double) pixelsHigh / yRange);
-            coords.add(new Coordinate(xPixel, yPixel, point.drawFrom(), point.drawTo()));
-         }
+         double xPixel = (double) xPixelStart + (point.getX() - start.getX()) * ((double) pixelsWide / xRange);
+         double yPixel = (double) yPixelStart + (start.getY() + yRange - point.getY()) * ((double) pixelsHigh / yRange);
+         coords.add(new Coordinate(xPixel, yPixel, point.drawFrom(), point.drawTo()));
       }
 
       int yAxis = xPixelStart - (int) (start.getX() * ((double) pixelsWide / xRange));
