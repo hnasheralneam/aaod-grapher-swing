@@ -10,11 +10,6 @@ public class FunctionGrapherTester extends FunctionGrapher {
     }
 
     @Override
-    public double xValue(int pointNum) {
-        return pointNum * xIncrement() + xyStart().getX();
-    }
-
-    @Override
     public Coordinate xyStart() {
         return new Coordinate(0, -1);
     }
@@ -27,12 +22,6 @@ public class FunctionGrapherTester extends FunctionGrapher {
     @Override
     public double yRange() {
         return 2;
-    }
-
-    @Override
-    public Coordinate getPoint(int pointNum) {
-        if (xValue(pointNum) <= xRange()) return new Coordinate(xValue(pointNum), yValue(xValue(pointNum)));
-        return null;
     }
 
     public static void main(String[] args) {
